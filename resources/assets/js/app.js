@@ -1,22 +1,35 @@
+import angular from 'angular';
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+import 'angular-animate';
+import 'angular-aria';
+import 'angular-material';
 
-require('./bootstrap');
+import AppController from './AppController';
+import Products from './products/Products';
 
-window.Vue = require('vue');
+export default angular.module( 'key-management-app', [ 'ngMaterial', Products.name ] )
+    .constant('csrfToken', document.head.querySelector('meta[name="csrf-token"]'))
+    .config(($mdIconProvider, $mdThemingProvider) => {
+        // Register the user `avatar` icons
+        // $mdIconProvider
+        //   .defaultIconSet("./assets/svg/avatars.svg", 128)
+        //   .icon("menu", "./assets/svg/menu.svg", 24)
+        //   .icon("share", "./assets/svg/share.svg", 24)
+        //   .icon("google_plus", "./assets/svg/google_plus.svg", 24)
+        //   .icon("hangouts", "./assets/svg/hangouts.svg", 24)
+        //   .icon("twitter", "./assets/svg/twitter.svg", 24)
+        //   .icon("phone", "./assets/svg/phone.svg", 24);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-const app = new Vue({
-    el: '#app'
-});
+        // $mdThemingProvider.theme('default')
+        //   .primaryPalette('brown')
+        //   .accentPalette('red');
+    })
+    .run(function($http) {
+        let token = document.head.querySelector('meta[name="csrf-token"]');
+        if (token) {
+            $http.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+        } else {
+            console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+        }
+    })
+    .controller('AppController', AppController);
