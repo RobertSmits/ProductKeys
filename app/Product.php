@@ -9,5 +9,12 @@ class Product extends Model
 {
     use SoftDeletes;
 
+    protected $primaryKey = 'product_id';
+
     protected $dates = ['deleted_at'];
+
+    public function keys()
+    {
+        return $this->hasMany(ProductKey::class, 'product_id');
+    }
 }

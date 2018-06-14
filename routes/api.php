@@ -18,14 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('api')->get('/product', function (Product $product) {
-    return Product::all();
-});
-
-Route::middleware('api')->get('/product/{id}', function (Product $product) {
-    return $product;
-});
-
-Route::middleware('api')->get('product/{id}/keys', function (Product $product) {
-    return $product->keys();
+Route::middleware('api')->get('/product', 'ProductController@index');
+Route::middleware('api')->get('/product/{product}', 'ProductController@show');
+Route::middleware('api')->get('/product/{product}/keys', function (Product $product) {
+    return $product->keys()->get();
 });
