@@ -1,0 +1,14 @@
+<md-card class="product-card" md-ink-ripple ng-click="$ctrl.clickHandler()" layout="column">
+    <div layout="row">
+        <span flex>{{ $ctrl.product.name }}</span>
+        <span class="text-light md-caption">{{ $ctrl.product.year }}</span>
+    </div>
+
+    <div ng-repeat="key in $ctrl.keys">
+        <span>{{ key.key }}</span>
+        <span>{{ key.user }}</span>
+    </div>
+
+    <span class="text-light md-caption">Keys: {{ $ctrl.product.key_count }}</span>
+
+</md-card>

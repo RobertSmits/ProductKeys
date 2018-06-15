@@ -1,13 +1,13 @@
 @import "variables";
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 @import "~angular-material/angular-material";
+@import "product-card";
 
-md-card {
-    border-radius: $card-border-radius;
-    position: relative;
-    overflow: hidden;
-    padding: 1rem;
+.text-light {
+    color: $text-light;
 }
+
+
 
 // // Bootstrap
 // @import '~bootstrap/scss/bootstrap';
