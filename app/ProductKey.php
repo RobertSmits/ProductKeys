@@ -10,8 +10,8 @@ class ProductKey extends Model
     use SoftDeletes;
 
     protected $primaryKey = 'product_key_id';
-
-    protected $dates = ['deleted_at'];
+    protected $hidden = [ 'created_at', 'updated_at', 'deleted_at' ];
+    protected $dates = [ 'created_at', 'updated_at', 'deleted_at' ];
 
     public function product()
     {
