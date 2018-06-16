@@ -19,7 +19,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('api')->get('/product', 'ProductController@index');
+Route::middleware('api')->post('/product', 'ProductController@store');
 Route::middleware('api')->get('/product/{product}', 'ProductController@show');
-Route::middleware('api')->get('/product/{product}/keys', function (Product $product) {
-    return $product->keys()->get();
-});
+//Route::middleware('api')->patch('/product/{product}', 'ProductController@update');
+Route::middleware('api')->delete('/product/{product}', 'ProductController@destroy');
+
+Route::middleware('api')->get('/product/{product}/keys', 'ProductKeyController@index');
+Route::middleware('api')->post('/product/{product}/keys', 'ProductKeyController@store');
+Route::middleware('api')->get('/product/{product}/keys/{productKey}', 'ProductKeyController@show');
+Route::middleware('api')->patch('/product/{product}/keys/{productKey}', 'ProductKeyController@update');
+Route::middleware('api')->delete('/product/{product}/keys/{productKey}', 'ProductKeyController@destroy');
+

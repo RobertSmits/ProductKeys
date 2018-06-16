@@ -11,6 +11,7 @@ class Product extends Model
 
     protected $primaryKey = 'product_id';
     protected $appends = ['key_count'];
+    protected $fillable = ['name', 'year'];
     protected $hidden = [ 'keys', 'created_at', 'updated_at', 'deleted_at' ];
     protected $dates = [ 'created_at', 'updated_at', 'deleted_at' ];
 

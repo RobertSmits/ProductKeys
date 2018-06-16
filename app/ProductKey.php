@@ -10,6 +10,7 @@ class ProductKey extends Model
     use SoftDeletes;
 
     protected $primaryKey = 'product_key_id';
+    protected $fillable = ['key', 'language', 'user', 'windows_10'];
     protected $hidden = [ 'created_at', 'updated_at', 'deleted_at' ];
     protected $dates = [ 'created_at', 'updated_at', 'deleted_at' ];
 

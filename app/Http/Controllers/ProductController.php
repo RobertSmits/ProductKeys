@@ -25,7 +25,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'bail|required|unique:products|max:255',
+            'year' => 'required|integer'
+        ]);
+        $product = new Product(request(['name', 'year']));
+        $product->save();
+        return response()->json($product->product_id);
     }
 
     /**
@@ -59,6 +65,6 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
     }
 }
