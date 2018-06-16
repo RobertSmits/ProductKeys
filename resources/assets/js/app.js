@@ -7,9 +7,9 @@ import 'angular-material';
 import AppController from './AppController';
 import Products from './products/Products';
 
-export default angular.module( 'key-management-app', [ 'ngMaterial', Products.name ] )
+export default angular.module('key-management-app', ['ngMaterial', Products.name])
     .constant('csrfToken', document.head.querySelector('meta[name="csrf-token"]'))
-    .config(($mdIconProvider, $mdThemingProvider) => {
+    .config(['$mdIconProvider', '$mdThemingProvider', ($mdIconProvider, $mdThemingProvider) => {
         // Register the user `avatar` icons
         // $mdIconProvider
         //   .defaultIconSet("./assets/svg/avatars.svg", 128)
@@ -23,13 +23,13 @@ export default angular.module( 'key-management-app', [ 'ngMaterial', Products.na
         // $mdThemingProvider.theme('default')
         //   .primaryPalette('brown')
         //   .accentPalette('red');
-    })
-    .run(function($http) {
+    }])
+    .run(['$http', $http => {
         let token = document.head.querySelector('meta[name="csrf-token"]');
         if (token) {
             $http.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
         } else {
             console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
         }
-    })
+    }])
     .controller('AppController', AppController);

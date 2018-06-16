@@ -1,14 +1,23 @@
-<md-card class="product-card" md-ink-ripple ng-click="$ctrl.clickHandler()" layout="column">
+<md-card class="product-card" md-ink-ripple  layout="column">
+
     <div layout="row">
-        <span flex>{{ $ctrl.product.name }}</span>
+        <span class="product-card__header" ng-class="{ 'product-card__header--selected' : $ctrl.selected }" flex>{{ $ctrl.product.name }}</span>
         <span class="text-light md-caption">{{ $ctrl.product.year }}</span>
     </div>
 
-    <div ng-repeat="key in $ctrl.keys">
-        <span>{{ key.key }}</span>
-        <span>{{ key.user }}</span>
+    <div class="product-card__key-container" ng-hide="!$ctrl.selected ">
+        <div ng-repeat="key in $ctrl.keys" layout="row">
+            <span flex="60">{{ key.key }}</span>
+            <span flex="20">{{ key.language }}</span>
+            <span flex="20">{{ key.user }}</span>
+        </div>
     </div>
 
-    <span class="text-light md-caption">Keys: {{ $ctrl.product.key_count }}</span>
+    <md-button class="md-fab product-card__fab" ng-class="{ 'product-card__fab--hide' : !$ctrl.selected }" aria-label="Add Key">
+        <md-icon>add</md-icon>
+    </md-button>
 
+    <div flex-row>
+        <span class="text-light md-caption product-card__count-label" ng-class="{ 'product-card__count-label--float' : $ctrl.selected }">Keys: {{ $ctrl.product.key_count }}</span>
+    </div>
 </md-card>

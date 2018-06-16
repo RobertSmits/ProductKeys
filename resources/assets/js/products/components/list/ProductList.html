@@ -1,1 +1,5 @@
-<product-card ng-repeat="product in $ctrl.products" product="product"></product-card>
+<product-card ng-repeat="product in $ctrl.products"
+              product="product"
+              selected="product.product_id == $ctrl.selectedId"
+              ng-click="$ctrl.onSelect({ 'productId': product.product_id })">
+</product-card>

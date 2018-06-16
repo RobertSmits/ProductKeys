@@ -12,13 +12,8 @@
     </head>
     <body ng-cloak ng-controller="AppController as app" layout="column">
         @include('layout.toolbar')
-        <div class="container" layout="row" flex>
-            <md-sidenav md-is-locked-open="true">
-                SideNav
-            </md-sidenav>
-            <md-content flex>
-                @yield('content')
-            </md-content>
+        <div class="container" layout="row" flex flex-align="center">
+            @yield('content')
         </div>
         <script src="./js/app.js" type="text/javascript"></script>
     </body>

@@ -5,10 +5,10 @@ import ProductList from './components/list/ProductList';
 import ProductCard from './components/card/ProductCard';
 
 export default angular
-  .module("Products", ['ngMaterial'])
+    .module("Products", ['ngMaterial'])
 
-  .component(ProductList.name, ProductList.config)
-  .component(ProductCard.name, ProductCard.config)
+    .component(ProductList.name, ProductList.config)
+    .component(ProductCard.name, ProductCard.config)
 
-  .service("ProductDataService", ProductDataService)
-  .service("KeyDataService", KeyDataService);
+    .service("ProductDataService", ProductDataService)
+    .service("KeyDataService", KeyDataService);

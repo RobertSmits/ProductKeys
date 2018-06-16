@@ -6,13 +6,11 @@ class ProductDataService {
         return this.$http({
             method: "GET",
             url: "/api/product"
-        })
-        .then(function (response) {
+        }).then(function (response) {
             return response.data;
         });
     }
 }
-
 
 ProductDataService.$inject = ['$http'];
 export default ProductDataService;

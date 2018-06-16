@@ -1,5 +1,6 @@
 @import "variables";
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "~angular-material/angular-material";
 @import "product-card";
 
@@ -7,12 +8,22 @@
     color: $text-light;
 }
 
+.container {
+    justify-content: center;
+}
 
+.product-fab {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    margin: 0;
+}
 
-// // Bootstrap
-// @import '~bootstrap/scss/bootstrap';
+.product-fab--hide {
+    transform: scale(.01);
+}
 
-// .navbar-laravel {
-//   background-color: #fff;
-//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-// }
+*, ::before, ::after {
+    box-sizing: border-box;
+    outline: none;
+}
