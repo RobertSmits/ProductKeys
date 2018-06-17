@@ -9,7 +9,7 @@
         </product-list>
     </md-content>
 
-    <md-button class="md-fab product-fab" ng-class="{ 'product-fab--hide' : app.selectedId != null }" aria-label="Add Product">
+    <md-button class="md-fab product-fab" ng-class="{ 'product-fab--hide' : app.selectedId != null }" aria-label="Add Product" ng-click="$event.stopPropagation();">
         <md-icon>add</md-icon>
     </md-button>
 

@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "~angular-material/angular-material";
 @import "product-card";
+@import "header-input";
 
 .text-light {
     color: $text-light;
@@ -27,3 +28,4 @@
     box-sizing: border-box;
     outline: none;
 }
+
