@@ -1,20 +1,17 @@
 class AppController {
     constructor($scope, ProductDataService) {
-        console.log('hello world');
         this.$scope = $scope;
         this.ProductDataService = ProductDataService;
-        this.init();
     }
-    init() {
+    $onInit() {
         this.search = null;
         this.products = [];
         this.selectedId = null;
         this.loadProducts();
     }
     clickHandler(productId) {
-        if (this.selectedId == productId) this.selectedId = null;
+        if (this.selectedId === productId) this.selectedId = null;
         else this.selectedId = productId;
-        this.$scope.$broadcast('selectBroadcast', this.selectedId);
     }
     clearSearch() {
         this.search = null;
