@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('shared.layout')
 
 @section('content')
 
@@ -9,7 +9,7 @@
         </product-list>
     </md-content>
 
-    <md-button class="md-fab product-fab" ng-class="{ 'product-fab--hide' : app.selectedId != null }" aria-label="Add Product" ng-click="$event.stopPropagation();">
+    <md-button class="md-fab product-fab" ng-class="{ 'product-fab--hide' : app.selectedId != null }" aria-label="Add Product" ng-click="app.createNewProduct($event)">
         <md-icon>add</md-icon>
     </md-button>
 

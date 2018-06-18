@@ -11,10 +11,13 @@
         <link rel="stylesheet" href="./css/app.css">
     </head>
     <body ng-cloak ng-controller="AppController as app" layout="column">
-        @include('layout.toolbar')
+
+        @include('shared.toolbar')
+
         <div class="container" layout="row" flex flex-align="center">
             @yield('content')
         </div>
+
         <script src="./js/app.js" type="text/javascript"></script>
     </body>
 </html>

@@ -6,8 +6,19 @@ class ProductDataService {
         return this.$http({
             method: "GET",
             url: `/api/product?search=${searchStrign || ''}`
-        }).then(function (response) {
+        }).then(response => {
             return response.data;
+        });
+    }
+    createProduct(product) {
+        return this.$http({
+            method: "POST",
+            url: "/api/product",
+            data: product
+        }).then(response => {
+            return response.data;
+        }, (response) => {
+            throw response.data;
         });
     }
 }

@@ -4,6 +4,9 @@ import KeyDataService from './services/KeyDataService';
 import ProductList from './components/list/ProductList';
 import ProductCard from './components/card/ProductCard';
 
+import ProductFactory from './factories/ProductFactory';
+import ProductPopupConfigFactory from './factories/ProductPopupConfigFactory';
+
 export default angular
     .module("Products", ['ngMaterial'])
 
@@ -11,4 +14,8 @@ export default angular
     .component(ProductCard.name, ProductCard.config)
 
     .service("ProductDataService", ProductDataService)
-    .service("KeyDataService", KeyDataService);
+    .service("KeyDataService", KeyDataService)
+
+    .factory("ProductFactory", ProductFactory)
+
+    .factory("ProductPopupConfigFactory", ProductPopupConfigFactory);

@@ -1,7 +1,9 @@
 class AppController {
-    constructor($scope, ProductDataService) {
+    constructor($scope, $mdPanel, ProductDataService, ProductPopupConfigFactory) {
         this.$scope = $scope;
+        this.$mdPanel = $mdPanel;
         this.ProductDataService = ProductDataService;
+        this.ProductPopupConfigFactory = ProductPopupConfigFactory;
     }
     $onInit() {
         this.search = null;
@@ -25,7 +27,28 @@ class AppController {
                 this.products = Array.prototype.concat(products);
             });
     }
+    createNewProduct($event) {
+        $event.stopPropagation()
+        let position = this.$mdPanel.newPanelPosition()
+            .absolute()
+            .center();
+
+        let animation = this.$mdPanel.newPanelAnimation()
+            .duration(300)
+            .openFrom('.product-fab')
+            .closeTo('.product-fab')
+            .withAnimation(this.$mdPanel.animation.SCALE);
+
+        let config = this.ProductPopupConfigFactory.get();
+        config.position = position;
+        config.animation = animation;
+        config.locals = {
+            'products': this.products
+        },
+
+        this.$mdPanel.open(config);
+    };
 }
 
-AppController.$inject = ['$scope', 'ProductDataService'];
+AppController.$inject = ['$scope', '$mdPanel', 'ProductDataService', 'ProductPopupConfigFactory'];
 export default AppController;

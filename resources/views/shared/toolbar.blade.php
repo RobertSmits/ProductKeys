@@ -11,6 +11,7 @@
         </div>
     </div>
 </md-toolbar>
+
 <md-toolbar show-xs hide-gt-xs class="md-whiteframe-4dp">
     <div class="md-toolbar-tools" data-ng-hide="showMobileSearch">
         <h2>
