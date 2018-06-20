@@ -1,14 +1,14 @@
-import ProductPopupTemplate from '../components/productPopup/ProductPopup.html'
-import ProductPopupController from '../components/productPopup/ProductPopupController'
+import KeyPopupTemplate from '../components/keyPopup/KeyPopup.html'
+import KeyPopupController from '../components/keyPopup/KeyPopupController';
 
-function ProductPopupConfigFactory() {
+function KeyPopupConfigFactory() {
     class Config {
         constructor($mdPanel) {
             this.attachTo = angular.element(document.body);
-            this.controller = ProductPopupController;
+            this.controller = KeyPopupController;
             this.controllerAs = 'ctrl';
             this.disableParentScroll = true;
-            this.template = ProductPopupTemplate;
+            this.template = KeyPopupTemplate;
             this.hasBackdrop = true;
             this.panelClass = 'demo-dialog-example';
             this.trapFocus = true;
@@ -23,10 +23,9 @@ function ProductPopupConfigFactory() {
 
             this.animation = $mdPanel.newPanelAnimation()
                 .duration(300)
-                .openFrom('.product-fab')
-                .closeTo('.product-fab')
+                .openFrom('.product-card__fab')
+                .closeTo('.product-card__fab')
                 .withAnimation($mdPanel.animation.SCALE);
-
         }
     }
 
@@ -39,4 +38,4 @@ function ProductPopupConfigFactory() {
     }
 }
 
-export default ProductPopupConfigFactory;
+export default KeyPopupConfigFactory;

@@ -10,7 +10,7 @@
             <label>Name</label>
             <input md-autofocus ng-model="ctrl.product.name" type="text">
             <div ng-class="{'md-auto-hide' : !ctrl.errors.name}">
-                    <div class="md-input-message-animation ng-binding" ng-repeat="error in ctrl.errors.name" ng-bind="error"></div>
+                <div class="md-input-message-animation ng-binding" ng-repeat="error in ctrl.errors.name" ng-bind="error"></div>
             </div>
         </md-input-container>
         <md-input-container class="md-block">

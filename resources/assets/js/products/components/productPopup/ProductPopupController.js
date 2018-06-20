@@ -9,9 +9,9 @@ class ProductPopupController {
             this.product.product_id = productId;
             this.products.push(this.product);
             this.mdPanelRef.close();
-        }).catch(excepton => {
-            this.errors = excepton.errors;
-        });
+        }).catch(excepton =>
+            this.errors = excepton.errors
+        );
     }
     closeDialog() {
         this.mdPanelRef.close();

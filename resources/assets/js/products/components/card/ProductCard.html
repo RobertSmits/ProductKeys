@@ -5,20 +5,20 @@
         <span class="text-light md-caption">{{ $ctrl.product.year }}</span>
     </div>
 
-    <div class="product-card__key-container" ng-hide="!$ctrl.selected ">
-        <div ng-repeat="key in $ctrl.keys" layout="row">
+    <div class="product-card__key-container" ng-hide="!$ctrl.selected" ng-style="{'max-height' : $ctrl.getScrollHeight() + 'px'}">
+        <div ng-repeat="key in $ctrl.keys" layout="row" ng-click="$ctrl.clickKey($event, key)">
             <span flex="60">{{ key.key }}</span>
             <span flex="20">{{ key.language }}</span>
             <span flex="20">{{ key.user }}</span>
         </div>
     </div>
 
-    <md-button class="md-fab product-card__fab" ng-class="{ 'product-card__fab--hide' : !$ctrl.selected }" aria-label="Add Key" ng-click="$event.stopPropagation();">
+    <md-button class="md-fab product-card__fab" ng-class="{ 'product-card__fab--hide' : !$ctrl.selected }" aria-label="Add Key" ng-click="$ctrl.createKey($event)">
         <md-icon>add</md-icon>
     </md-button>
 
     <div flex-row>
-        <span class="text-light md-caption product-card__count-label" ng-class="{ 'product-card__count-label--float' : $ctrl.selected }">Keys: {{ $ctrl.product.key_count }}</span>
+        <span class="text-light md-caption product-card__count-label" ng-class="{ 'product-card__count-label--float' : $ctrl.selected }">Keys: {{ $ctrl.getKeyCount() }}</span>
     </div>
 
 </md-card>

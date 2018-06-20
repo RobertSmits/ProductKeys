@@ -5,7 +5,11 @@ import ProductList from './components/list/ProductList';
 import ProductCard from './components/card/ProductCard';
 
 import ProductFactory from './factories/ProductFactory';
+import KeyFactory from './factories/KeyFactory';
+
 import ProductPopupConfigFactory from './factories/ProductPopupConfigFactory';
+import KeyPopupConfigFactory from './factories/KeyPopupConfigFactory';
+
 
 export default angular
     .module("Products", ['ngMaterial'])
@@ -17,5 +21,7 @@ export default angular
     .service("KeyDataService", KeyDataService)
 
     .factory("ProductFactory", ProductFactory)
+    .factory("KeyFactory", KeyFactory)
 
-    .factory("ProductPopupConfigFactory", ProductPopupConfigFactory);
+    .factory("ProductPopupConfigFactory", ProductPopupConfigFactory)
+    .factory("KeyPopupConfigFactory", KeyPopupConfigFactory);

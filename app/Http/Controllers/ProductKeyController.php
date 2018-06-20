@@ -28,7 +28,7 @@ class ProductKeyController extends Controller
     {
         $this->validate($request, [
             'product_id' => 'bail|required|exists:products',
-            'key' => 'required|max:255',
+            'key' => 'bail|required|unique:product_keys,key,NULL,product_key_id,product_id,'.$request->product_id.'|max:255',
             'language' => 'nullable|max:50',
             'user' => 'nullable|max:255',
             'windows_10' => 'nullable|boolean',
@@ -75,8 +75,6 @@ class ProductKeyController extends Controller
         $productKey->windows_10 = request('windows_10');
         $productKey->save();
     }
-
-
 
     /**
      * Remove the specified resource from storage.

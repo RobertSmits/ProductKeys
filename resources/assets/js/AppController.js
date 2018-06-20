@@ -28,20 +28,8 @@ class AppController {
             });
     }
     createNewProduct($event) {
-        $event.stopPropagation()
-        let position = this.$mdPanel.newPanelPosition()
-            .absolute()
-            .center();
-
-        let animation = this.$mdPanel.newPanelAnimation()
-            .duration(300)
-            .openFrom('.product-fab')
-            .closeTo('.product-fab')
-            .withAnimation(this.$mdPanel.animation.SCALE);
-
-        let config = this.ProductPopupConfigFactory.get();
-        config.position = position;
-        config.animation = animation;
+        $event.stopPropagation();
+        let config = this.ProductPopupConfigFactory.get(this.$mdPanel);
         config.locals = {
             'products': this.products
         },
