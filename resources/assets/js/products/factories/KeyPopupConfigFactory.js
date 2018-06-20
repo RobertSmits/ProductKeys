@@ -10,7 +10,7 @@ function KeyPopupConfigFactory() {
             this.disableParentScroll = true;
             this.template = KeyPopupTemplate;
             this.hasBackdrop = true;
-            this.panelClass = 'demo-dialog-example';
+            this.panelClass = 'md-dialog__container';
             this.trapFocus = true;
             this.zIndex = 150;
             this.clickOutsideToClose = true;

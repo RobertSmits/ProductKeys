@@ -10,7 +10,7 @@ function ProductPopupConfigFactory() {
             this.disableParentScroll = true;
             this.template = ProductPopupTemplate;
             this.hasBackdrop = true;
-            this.panelClass = 'demo-dialog-example';
+            this.panelClass = 'md-dialog__container';
             this.trapFocus = true;
             this.zIndex = 150;
             this.clickOutsideToClose = true;

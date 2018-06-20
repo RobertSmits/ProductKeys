@@ -7,9 +7,9 @@
 
     <div class="product-card__key-container" ng-hide="!$ctrl.selected" ng-style="{'max-height' : $ctrl.getScrollHeight() + 'px'}">
         <div ng-repeat="key in $ctrl.keys" layout="row" ng-click="$ctrl.clickKey($event, key)">
-            <span flex="60">{{ key.key }}</span>
-            <span flex="20">{{ key.language }}</span>
-            <span flex="20">{{ key.user }}</span>
+            <span class="product-card__key" flex="60">{{ key.key }}</span>
+            <span class="product-card__language" flex="20">{{ key.language }}</span>
+            <span class="product-card__user" flex="20">{{ key.user }}</span>
         </div>
     </div>
 

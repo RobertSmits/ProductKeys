@@ -1,0 +1,36 @@
+.md-dialog__container {
+    width: 500px;
+    max-width: 100%;
+
+    @media (max-width: 599px) {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.md-dialog {
+    height: 100%;
+    padding: 1.5rem;
+    background: white;
+    border-radius: .25rem;
+    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+                0 13px 19px 2px rgba(0, 0, 0, 0.14),
+                0 5px 24px 4px rgba(0, 0, 0, 0.12);
+}
+
+.md-dialog__title {
+    margin: 0 0 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    align-self: flex-start;
+}
+
+.md-dialog__content {
+    width: 100%;
+}
+
+.md-dialog__action {
+    width: 100%;
+    padding: .75rem 0;
+    margin-bottom: -1.5rem;
+}

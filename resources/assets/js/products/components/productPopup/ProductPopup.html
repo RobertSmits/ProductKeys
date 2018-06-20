@@ -1,11 +1,7 @@
-<div role="dialog" aria-label="Eat me!" layout-align="center center" layout="column">
-    <md-toolbar class="md-whiteframe-4dp">
-        <div class="md-toolbar-tools">
-            <h2>Create Product</h2>
-        </div>
-    </md-toolbar>
+<div class="md-dialog" role="dialog" layout-align="center center" layout="column">
+    <h1 class="md-dialog__title">Create Product</h1>
 
-    <div flex class="demo-dialog-content">
+    <div flex class="md-dialog__content">
         <md-input-container class="md-block">
             <label>Name</label>
             <input md-autofocus ng-model="ctrl.product.name" type="text">
@@ -22,7 +18,7 @@
         </md-input-container>
     </div>
 
-    <div layout="row" class="demo-dialog-button">
+    <div layout="row" class="md-dialog__action">
         <span flex></span>
         <md-button class="md-primary" ng-click="ctrl.closeDialog()">
             Cancel
@@ -32,38 +28,3 @@
         </md-button>
     </div>
 </div>
-<style>
-    div[role="dialog"] {
-        height: 100%;
-    }
-
-    .demo-md-panel {
-        min-height: 500px;
-    }
-
-    .demo-dialog-example {
-        background: white;
-        border-radius: 4px;
-        box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
-        0 13px 19px 2px rgba(0, 0, 0, 0.14),
-        0 5px 24px 4px rgba(0, 0, 0, 0.12);
-        width: 500px;
-        max-width: 100%;
-    }
-
-    @media (max-width: 599px) {
-        .demo-dialog-example {
-            height: 100%;
-            width: 100%;
-        }
-    }
-
-    .demo-dialog-content {
-        padding: 0 15px;
-        width: 100%;
-    }
-
-    .demo-dialog-button {
-        width: 100%;
-    }
-</style>
