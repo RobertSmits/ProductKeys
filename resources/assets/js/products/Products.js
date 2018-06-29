@@ -9,7 +9,7 @@ import KeyFactory from './factories/KeyFactory';
 
 import ProductPopupConfigFactory from './factories/ProductPopupConfigFactory';
 import KeyPopupConfigFactory from './factories/KeyPopupConfigFactory';
-
+import Clipboard from './factories/Clipboard';
 
 export default angular
     .module("Products", ['ngMaterial'])
@@ -24,4 +24,5 @@ export default angular
     .factory("KeyFactory", KeyFactory)
 
     .factory("ProductPopupConfigFactory", ProductPopupConfigFactory)
-    .factory("KeyPopupConfigFactory", KeyPopupConfigFactory);
+    .factory("KeyPopupConfigFactory", KeyPopupConfigFactory)
+    .factory("Clipboard", Clipboard)

@@ -2,11 +2,12 @@ import KeyBottomSheetTemplate from '../keyBottomSheet/KeyBottomSheet.html';
 import KeyBottomSheetController from '../keyBottomSheet/KeyBottomSheetController';
 
 class ProductCardController {
-    constructor($element, $mdPanel, $mdBottomSheet, KeyDataService, KeyPopupConfigFactory) {
+    constructor($element, $mdPanel, $mdBottomSheet, Clipboard, KeyDataService, KeyPopupConfigFactory) {
         this.keys = null;
         this.el = $element[0].querySelector('.product-card__key-container')
         this.$mdPanel = $mdPanel;
         this.$mdBottomSheet = $mdBottomSheet;
+        this.Clipboard = Clipboard;
         this.KeyDataService = KeyDataService;
         this.KeyPopupConfigFactory = KeyPopupConfigFactory;
     }
@@ -59,19 +60,26 @@ class ProductCardController {
     }
     clickKey($event, key) {
         $event.stopPropagation();
-        this.$mdBottomSheet.show({
+        let config = {
             template: KeyBottomSheetTemplate,
             controller: KeyBottomSheetController,
-            clickOutsideToClose: true
-        }).then(action => {
-            if (action === 'edit') {
-                this.editKey(key)
-            } else if (action === 'delete') {
-                this.deleteKey(key);
+            controllerAs: 'ctrl',
+            clickOutsideToClose: true,
+            bindToController: true
+        };
+        config.locals = {
+            'key': key
+        }
+
+        this.$mdBottomSheet.show(config).then(action => {
+            switch (action) {
+                case 'copy': return this.Clipboard.toClipboard(key.key);
+                case 'edit': return this.editKey(key);
+                case 'delete': this.deleteKey(key);
             }
         })
     }
 }
 
-ProductCardController.$inject = ['$element', '$mdPanel', '$mdBottomSheet', 'KeyDataService', 'KeyPopupConfigFactory'];
+ProductCardController.$inject = ['$element', '$mdPanel', '$mdBottomSheet', 'Clipboard', 'KeyDataService', 'KeyPopupConfigFactory'];
 export default ProductCardController;
