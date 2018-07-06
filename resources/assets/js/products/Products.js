@@ -1,8 +1,8 @@
 import ProductDataService from './services/ProductDataService';
 import KeyDataService from './services/KeyDataService';
 
-import ProductList from './components/list/ProductList';
-import ProductCard from './components/card/ProductCard';
+import ProductList from './components/productList/ProductList';
+import ProductCard from './components/productCard/ProductCard';
 
 import ProductFactory from './factories/ProductFactory';
 import KeyFactory from './factories/KeyFactory';

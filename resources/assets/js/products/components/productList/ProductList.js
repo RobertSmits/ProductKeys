@@ -1,4 +1,4 @@
-import template from './ProductList.html'
+import template from './ProductList.html';
 
 export default {
     name: 'productList',

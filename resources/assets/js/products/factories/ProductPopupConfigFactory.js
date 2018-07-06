@@ -1,5 +1,5 @@
-import ProductPopupTemplate from '../components/productPopup/ProductPopup.html'
-import ProductPopupController from '../components/productPopup/ProductPopupController'
+import ProductPopupTemplate from '../components/productPopup/ProductPopup.html';
+import ProductPopupController from '../components/productPopup/ProductPopupController';
 
 function ProductPopupConfigFactory() {
     class Config {

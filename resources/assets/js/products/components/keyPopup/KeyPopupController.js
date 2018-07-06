@@ -6,7 +6,7 @@ class KeyPopupController {
             this.workingKey = Object.assign({}, this.key);
         } else {
             this.workingKey = KeyFactory.get();
-            this.workingKey.product_id = this.productId
+            this.workingKey.product_id = this.productId;
         }
     }
     saveKey() {

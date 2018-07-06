@@ -1,4 +1,4 @@
-import KeyPopupTemplate from '../components/keyPopup/KeyPopup.html'
+import KeyPopupTemplate from '../components/keyPopup/KeyPopup.html';
 import KeyPopupController from '../components/keyPopup/KeyPopupController';
 
 function KeyPopupConfigFactory() {
