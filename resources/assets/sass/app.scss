@@ -25,6 +25,21 @@
     transform: scale(.01);
 }
 
+.bottom-sheet-handle {
+    display: block;
+    height: 5px;
+    width: 26px;
+    border-radius: 2.5px;
+    margin: 0 auto;
+    background: #e8eaed;
+    cursor: pointer;
+}
+
+md-bottom-sheet {
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
 *, ::before, ::after {
     box-sizing: border-box;
     outline: none;
