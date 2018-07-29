@@ -1,4 +1,4 @@
-@mixin plaxeholder-style() {
+@mixin placeholder-style() {
     color: #fff;
     opacity: 1;
     -webkit-font-smoothing: antialiased;
@@ -13,80 +13,65 @@ md-toolbar .md-errors-spacer {
     position: absolute;
 }
 
-.md-toolbar__search-container {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-}
-
-.md-toolbar__input-wrapper {
-    font-size: 1rem;
-    background-color: rgba(255, 255, 255, .1);
-    border-radius: .5rem;
-    display: flex;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.md-toolbar__input-icon {
-    width: 4.6rem;
-    text-align: center;
-}
-
-.md-toolbar__input {
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    box-shadow: none;
-    margin: 0;
-    outline: none;
-    height: 2rem;
-    flex: 1;
-    margin-left: 16px;
-
-    &::placeholder {
-        @include plaxeholder-style();
+.md-toolbar {
+    &__input-wrapper {
+        font-size: 1rem;
+        background-color: rgba(255, 255, 255, .1);
+        border-radius: .5rem;
+        display: flex;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        @media only screen and (max-width: 959px) {
+            margin-left: 56px;
+            margin-right: 16px;
+            flex: 1;
+        }
+        @media only screen and (min-width: 960px) {
+            flex-basis: 66%;
+        }
     }
-
-    &::-ms-input-placeholder {
-        @include plaxeholder-style();
+    &__input-icon {
+        width: 4.6rem;
+        text-align: center;
     }
-
-    &:-ms-input-placeholder {
-        @include plaxeholder-style();
-    }
-}
-
-md-icon + .md-toolbar__input {
-    margin-left: 0;
-}
-
-.md-toolbar__input-wrapper {
-    @media only screen and (max-width: 599px) {
-        margin-left: 56px;
-        margin-right: 16px;
+    &__input {
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        box-shadow: none;
+        margin: 0;
+        outline: none;
+        height: 2rem;
         flex: 1;
+        margin-left: 16px;
+        &::placeholder {
+            @include placeholder-style();
+        }
+        &::-ms-input-placeholder {
+            @include placeholder-style();
+        }
+        &:-ms-input-placeholder {
+            @include placeholder-style();
+        }
+        md-icon+& {
+            margin-left: 0;
+        }
     }
-    @media only screen and (min-width: 600px) and (max-width: 1644px) {
-        margin-left: 260px;
-        margin-right: 16px;
-        flex: 1;
-    }
-    @media only screen and (min-width: 1645px) {
-        width: 66%;
-    }
-}
+    &__search-container {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
 
-.md-toolbar__search-container {
-    height: $md-toolbar-height;
-    max-height: $md-toolbar-height;
-    @media (min-width: 0) and (max-width: $layout-breakpoint-sm - 1) and (orientation: portrait) {
+        height: $md-toolbar-height;
+        max-height: $md-toolbar-height;
+        @media (min-width: 0) and (max-width: $layout-breakpoint-sm - 1) and (orientation: portrait) {
             height: $md-toolbar-height-mobile-portrait;
             max-height: $md-toolbar-height-mobile-portrait;
-    }
-    @media (min-width: 0) and (max-width: $layout-breakpoint-sm - 1) and (orientation: landscape) {
+        }
+        @media (min-width: 0) and (max-width: $layout-breakpoint-sm - 1) and (orientation: landscape) {
             height: $md-toolbar-height-mobile-landscape;
             max-height: $md-toolbar-height-mobile-landscape;
+        }
     }
 }

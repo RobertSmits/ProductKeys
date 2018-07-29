@@ -19,10 +19,9 @@
     bottom: 2rem;
     right: 2rem;
     margin: 0;
-}
-
-.product-fab--hide {
-    transform: scale(.01);
+    &--hide {
+        transform: scale(.01);
+    }
 }
 
 .bottom-sheet-handle {
