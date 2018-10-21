@@ -6,8 +6,17 @@
 @import "header-input";
 @import "dialog";
 
+*, ::before, ::after {
+    box-sizing: border-box;
+    outline: none;
+}
+
 .text-light {
     color: $text-light;
+}
+
+.layout-row {
+    flex-wrap: wrap;
 }
 
 .container {
@@ -29,7 +38,7 @@
     height: 5px;
     width: 26px;
     border-radius: 2.5px;
-    margin: 0 auto;
+    margin: 8px auto 0;
     background: #e8eaed;
     cursor: pointer;
 }
@@ -37,10 +46,23 @@
 md-bottom-sheet {
     border-top-left-radius: .5rem;
     border-top-right-radius: .5rem;
-}
 
-*, ::before, ::after {
-    box-sizing: border-box;
-    outline: none;
-}
+    .md-grid-item-content {
+        height: 90px;
+        padding-top: 10px;
 
+        md-icon {
+            height: 48px;
+            width: 48px;
+        }
+    }
+
+    .md-grid-text {
+        padding-bottom: 5px;
+    }
+
+    md-list-item,
+    md-list-item .md-list-item-inner {
+        min-height: 48px;
+    }
+}

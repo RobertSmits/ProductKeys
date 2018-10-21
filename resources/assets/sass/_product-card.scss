@@ -6,11 +6,17 @@
     border-radius: .5rem;
     outline: none !important;
     transition: all .5s ease;
-    position: relative;
+    position: relative;   
+     &:hover {
+        box-shadow: $whiteframe-shadow-6dp;
+    }
+    &--selected {
+        box-shadow: $whiteframe-shadow-6dp;
+    }
     &__header {
         font-size: 1rem;
         transition: all .5s ease;
-        &--selected {
+        .product-card--selected & {
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
         }
@@ -21,11 +27,20 @@
         position: relative;
         margin-bottom: 0px;
         transition: all .5s ease-out;
+        margin: 0 -1rem;
         &[aria-hidden="false"] {
-            margin-bottom: 56px;
+            margin-bottom: 48px;
         }
     }
-    &_user {
+    &__key-wrapper {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    &__user {
+        color: #767676;
+    }
+    &__language {
+        color: #767676;
         text-align: right;
     }
     &__count-label {

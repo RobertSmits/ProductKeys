@@ -1,16 +1,22 @@
-<md-card class="product-card" md-ink-ripple  layout="column">
+<md-card class="product-card" ng-class="{ 'product-card--selected' : $ctrl.selected }" md-ink-ripple layout="column">
 
     <div layout="row">
-        <span class="product-card__header" ng-class="{ 'product-card__header--selected' : $ctrl.selected }" flex>{{ $ctrl.product.name }}</span>
+        <span class="product-card__header" flex>{{ $ctrl.product.name }}</span>
         <span class="text-light md-caption">{{ $ctrl.product.year }}</span>
     </div>
 
     <div class="product-card__key-container" ng-hide="!$ctrl.selected" ng-style="{'max-height' : $ctrl.getScrollHeight() + 'px'}">
-        <div ng-repeat="key in $ctrl.keys" layout="row" ng-click="$ctrl.clickKey($event, key)">
-            <span class="product-card__key" flex="60">{{ key.key }}</span>
-            <span class="product-card__language" flex="20">{{ key.language }}</span>
-            <span class="product-card__user" flex="20">{{ key.user }}</span>
-        </div>
+        <md-list>
+            <md-list-item class="md-2-line"  ng-repeat="key in $ctrl.keys" ng-click="$ctrl.clickKey($event, key)">
+                <div class="md-list-item-text">
+                    <h3 flex-xs="100" flex="60">{{ key.key }}</h3>
+                    <p  layout="row">
+                        <span class="product-card__user"     flex="50">{{ key.user }}</span>
+                        <span class="product-card__language" flex="50">{{ key.language }}</span>
+                    </p>
+                </div>
+            </md-list-item>
+        </md-list>
     </div>
 
     <md-button class="md-fab product-card__fab" ng-class="{ 'product-card__fab--hide' : !$ctrl.selected }" aria-label="Add Key" ng-click="$ctrl.createKey($event)">
