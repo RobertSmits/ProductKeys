@@ -23,6 +23,13 @@
     justify-content: center;
 }
 
+product-list {
+    display: block;
+    @media only screen and (max-width: ($app-layout-breakpoint - 1px)) {
+        padding-bottom: calc(1rem + 56px);        
+    }
+}
+
 .product-fab {
     position: absolute;
     bottom: 2rem;
@@ -33,7 +40,7 @@
     }
 }
 
-.bottom-sheet-handle {
+.md-bottom-sheet__handle {
     display: block;
     height: 5px;
     width: 26px;

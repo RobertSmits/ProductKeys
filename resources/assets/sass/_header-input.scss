@@ -22,12 +22,12 @@ md-toolbar .md-errors-spacer {
         position: relative;
         margin-left: auto;
         margin-right: auto;
-        @media only screen and (max-width: 959px) {
+        @media only screen and (max-width: ($app-layout-breakpoint - 1px)) {
             margin-left: 56px;
             margin-right: 16px;
             flex: 1;
         }
-        @media only screen and (min-width: 960px) {
+        @media only screen and (min-width: $app-layout-breakpoint) {
             flex-basis: 66%;
         }
     }
