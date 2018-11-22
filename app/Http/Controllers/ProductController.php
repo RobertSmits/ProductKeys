@@ -20,7 +20,7 @@ class ProductController extends Controller
             return Product::hydrate($products);
         }
 
-        return Product::all();
+        return Product::orderBy('name')->get();
     }
 
     /**

@@ -5,9 +5,11 @@
         <span class="text-light md-caption">{{ $ctrl.product.year }}</span>
     </div>
 
-    <div class="product-card__key-container" ng-hide="!$ctrl.selected" ng-style="{'max-height' : $ctrl.getScrollHeight() + 'px'}">
+    <md-progress-linear ng-if="$ctrl.selected && $ctrl.keys == null"></md-progress-linear>
+
+    <div class="product-card__key-container" aria-hidden="{{ !$ctrl.selected }}" ng-style="{'max-height' : $ctrl.getScrollHeight() + 'px'}">
         <md-list>
-            <md-list-item class="md-2-line"  ng-repeat="key in $ctrl.keys" ng-click="$ctrl.clickKey($event, key)">
+            <md-list-item class="md-2-line" ng-repeat="key in $ctrl.keys" ng-click="$ctrl.clickKey($event, key)">
                 <div class="md-list-item-text">
                     <h3 flex-xs="100" flex="60">{{ key.key }}</h3>
                     <p  layout="row">
